@@ -47,6 +47,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
+    
     const textVariants = {
       default: 'text-xl',
       muted: 'text-xl text-(--text-secondary)',
@@ -103,9 +104,25 @@
       )
     }
 
+    function Card({ children, className, ...props }) {
+      return (
+        <div className={`
+          bg-(--background) 
+          rounded-2xl
+          shadow-(--shadow)
+          ${className ? className : ''}
+        `}>
+        {children}
+        </div>
+      )
+    }
+
     function App() {
       return (
         <main className="py-28 px-4">
+          <Card>
+            Testando card  
+          </Card>
         </main>
       )
     }
